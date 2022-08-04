@@ -18,6 +18,7 @@ vim.opt.smartindent = true -- make indenting smarter again
 vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4 -- insert 2 spaces for a tab
+vim.cmd([[set mouse=a]]) -- enable mouse scrolling
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "tokyonight"
@@ -135,8 +136,8 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
-local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
+local formatters = require("lvim.lsp.null-ls.formatters")
+formatters.setup({
 	{ command = "black", filetypes = { "python" } },
 	{ command = "isort", filetypes = { "python" } },
 	{
@@ -149,11 +150,11 @@ formatters.setup {
 		filetypes = { "typescript", "typescriptreact" },
 	},
 	{ command = "stylua", filetypes = { "lua" } },
-}
+})
 
 -- -- set additional linters
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
+local linters = require("lvim.lsp.null-ls.linters")
+linters.setup({
 	{ command = "flake8", filetypes = { "python" } },
 	{ command = "jsonlint", filetypes = { "json" } },
 	{
@@ -168,7 +169,7 @@ linters.setup {
 		---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
 		filetypes = { "javascript", "lua", "python" },
 	},
-}
+})
 
 -- Additional Plugins
 lvim.plugins = {
