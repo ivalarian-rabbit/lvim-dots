@@ -174,6 +174,15 @@ linters.setup({
 -- Additional Plugins
 lvim.plugins = {
 	{ "folke/tokyonight.nvim" },
+	{
+		"wfxr/minimap.vim",
+		run = "cargo install --locked code-minimap",
+		-- cmd = {"Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight"},
+	},
+	{
+		"sindrets/diffview.nvim",
+		event = "BufRead",
+	},
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
